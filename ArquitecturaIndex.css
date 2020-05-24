@@ -1,0 +1,93 @@
+.logo{
+    float: left;
+}
+.buscar{
+    width: 60%;
+    display:inline-block;
+    
+}
+.redes{
+    float: right;
+    margin-top: 34px;
+}
+input,label{
+    float: none;
+    width: 100px;
+}
+body{
+    background: tan;
+}
+
+#button {
+    padding: 0;
+    
+}
+#button li {
+    display: inline;
+    
+}
+#button li a {
+    font-family: Arial;
+    font-size: 11px;
+    text-decoration: none;
+    float: left;
+    padding: 4px;
+    background-color: #2175bc;
+    color: #fff;
+    text-align: justify;
+    }
+#img1{
+        float: right;
+ }
+aside{
+    float:right;
+}
+aside,article{
+    float: left;
+    text-align: justify;
+}
+#informacion{
+    width: 55%;
+}
+#audio{
+    float: left;
+}
+iframe{
+      border:0px;
+}
+h2{
+    text-align: center;
+}
+.sectionA{
+    margin-top: 550px;
+    border: rgb(160, 158, 158) 2px solid;
+    padding: 10px;
+    background: wheat;
+}
+.sectionB,ol{
+    margin-top:0px;
+    border: rgb(86, 87, 143);
+    padding:10px;
+    background:#e6864e;
+    text-align: justify;
+}
+.sectionC{
+    margin-top:0px;
+    text-align: left;
+    border: rgb(136, 167, 157);
+    padding:180px;
+    background:#a7ce81;
+}
+address{
+    margin-top: 80px;
+}
+
+#piepagina{
+    margin-top:0px;
+    clear: both;
+    border: rgb(86, 87, 143);
+    padding: 0px;
+    border-bottom: outset;
+    border-color: darkslategrey;
+    
+}

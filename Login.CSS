@@ -1,0 +1,33 @@
+html{
+    background-color: darkgoldenrod;
+}
+.img{
+    margin-left: 178px;
+    width: 200px;
+}
+aside{
+    padding: 500px;
+    margin-top: -445px;
+}
+input{
+    width: 500px;
+}
+#btnValidar{
+    display: inline-block;
+    border-radius: 4px;
+    background-color: chartreuse;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    margin-left: 174px;
+      }

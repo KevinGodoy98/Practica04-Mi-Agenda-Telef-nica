@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="keywords" content="Kevin Godoy,Wireless,Cargadores"/>
+    <meta charset="utf-8" /> <!-- dar el formato utf-8 a nuestra pagina -->
+    <title>Login</title>
+    <link rel="stylesheet" href ="../../Login.CSS" type="text/css" />
+</head>
+<body>
+    <aside>
+        <img class="img" src="https://cdn.onlinewebfonts.com/svg/img_568656.png" alt="mio"> &nbsp;&nbsp;&nbsp;
+        <form  method="POST" action="../controlador/Login.php" >
+        <fieldset>
+               <legend>Iniciar Sesion:</legend>
+                     <p>Llene los siguintes datos:</p><br>
+                    <br>
+                     <div><label>Ingrese Usuario:</label><input type='text' id="usuario" name="usuario"></div><br>
+                     <div><label>Ingrese Contraseña:</label><input type='password' id="contraseña" name="contraseña" value='' ></div><br>
+           </fieldset>
+           <input type="submit"  id="btnValidar"  value="Ingresar"> 
+        </form>
+        <spam id="p" style="display: none;">error</spam>
+    </aside>
+</body>
+</html>
