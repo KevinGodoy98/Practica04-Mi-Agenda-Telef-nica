@@ -19,14 +19,14 @@ body{
 }
 .img1{
     width: 426px;
-    height: 482px;
+    height: 500px;
     float: right;
     margin-right: -422px;
     margin-top: 8px;
 }
 fieldset{
     width: 12%;
-    margin-top: -491px;
+    margin-top: -507px;
     float: right;
     margin-left: -265px
 }
@@ -39,8 +39,13 @@ aside{
 }
 footer{
     background-color: #afbdb363;
-    padding: 67px;
+    padding: 0px;
     margin-top: 491px;
+    clear: both;
+    border: rgb(86, 87, 143);
+    border-bottom: outset;
+    border-color: darkslategrey;
+    border-top: 2px solid black;
 }
 .error {
     color: red;

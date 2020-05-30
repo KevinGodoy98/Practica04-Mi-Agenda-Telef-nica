@@ -7,8 +7,7 @@
  $result = $conn->query($sql);
  if ($result->num_rows > 0) {
  $_SESSION['isLogged'] = TRUE;
- echo "<p>Logeo exitoso!! :)</p>";
- //header("Location: ");
+ header("Location: ../vista/listarUsuarios.php");
  } else {
     echo "<script>
           alert('Cuenta no registrada');

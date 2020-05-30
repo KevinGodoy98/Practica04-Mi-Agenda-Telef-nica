@@ -21,7 +21,7 @@
  $rol = isset($_POST["rol"]) ? mb_strtoupper(trim($_POST["rol"]), 'UTF-8') : null;
  $Correo = isset($_POST["Correo"]) ? trim($_POST["Correo"]): null;
  $password = isset($_POST["password"]) ? trim($_POST["password"]) : null;
- $numero = isset($_POST["numero"]) ? mb_strtoupper(trim($_POST["numero"]), 'UTF-8') : null;      
+ $numero = isset($_POST["telefono"]) ? mb_strtoupper(trim($_POST["telefono"]), 'UTF-8') : null;      
  $tipo = isset($_POST["tipo"]) ? mb_strtoupper(trim($_POST["tipo"]), 'UTF-8') : null;    
  $operadora = isset($_POST["operadora"]) ? mb_strtoupper(trim($_POST["operadora"]), 'UTF-8') : null; 
     
@@ -29,7 +29,6 @@
 
     while ($row = $maxval->fetch_assoc()) {
         $Vusuario = $row['usu_codigo'];
-
     }
     $Vusuario+=1;
     echo($Vusuario);
