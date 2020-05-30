@@ -2,14 +2,22 @@
  //incluir conexión a la base de datos
  include '../../config/ConexionBD.php';
  $cedula = $_GET['BuscarParametro'];
+ $correo = $_GET['BuscarParametro'];
  //echo "Hola " . $cedula;
 
  $sql = "SELECT u.usu_nombres,u.usu_apellidos,t.tel_numero,t.tel_tipo 
          from usuario u , Telefonos t
          where u.usu_codigo = t.tel_usu_codigo
          And u.usu_cedula ='$cedula'";
+
+$sql1 = "SELECT u.usu_nombres,u.usu_apellidos,t.tel_numero,t.tel_tipo 
+         from usuario u , Telefonos t
+         where u.usu_codigo = t.tel_usu_codigo
+         And u.usu_correo ='$correo'";
+
 //cambiar la consulta para puede buscar por ocurrencias de letras
- $result = $conn->query($sql);
+ $result =$conn->query($sql);
+ $result1 =$conn->query($sql1);
  echo " <table style='width:100%'>
  <tr>
  <th>Nombres</th>
@@ -18,7 +26,7 @@
  <th>Tipo</th>
  </tr>";
 
- if ($result->num_rows > 0) {
+ if ($result->num_rows > 0 ) {
 
     while($row = $result->fetch_assoc()) {
     echo "<tr>";
@@ -34,9 +42,25 @@
     echo "</tr>";
     }
  } else {
- echo "<tr>";
- echo " <td colspan='7'> No existen usuarios registradas en el sistema </td>";
- echo "</tr>";
+   if ($result1->num_rows > 0 ){
+    while($row1 = $result1->fetch_assoc()) {
+        echo "<tr>";
+       
+        echo " <td style=text-align:center>" . $row1['usu_nombres'] ."</td>";
+        
+        echo " <td style=text-align:center>" . $row1['usu_apellidos'] . "</td>";
+        
+        echo " <td style=text-align:center>" . $row1['tel_numero'] . "</td>" ;"<br>";
+        
+        echo " <td style=text-align:center>" . $row1['tel_tipo'] . "</td>" ;"<br>";
+        
+        echo "</tr>";
+        }
+   }else{
+    echo "<tr>";
+    echo " <td colspan='7'> No existen usuarios registradas en el sistema </td>";
+    echo "</tr>";
+ }
  }
  echo "</table>";
  $conn->close();

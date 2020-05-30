@@ -1,7 +1,7 @@
-document.getElementById("btnBuscar").addEventListener("click",buscarPorCedula);
-function buscarPorCedula() {
-    var cedula = document.getElementById("BuscarParametro").value;
-    if (cedula == "") {
+document.getElementById("btnBuscar").addEventListener("click",buscarAnonimo);
+function buscarAnonimo() {
+    var parametro = document.getElementById("BuscarParametro").value;
+    if (parametro == "") {
     document.getElementById("buscar").innerHTML = "";
     } else {
     if (window.XMLHttpRequest) {
@@ -17,8 +17,9 @@ function buscarPorCedula() {
     document.getElementById("buscar").innerHTML = this.responseText;
     }
     };
-    xmlhttp.open("GET","/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/public/vista/listarTelefonosAnonimo.php?BuscarParametro="+cedula,true);
+    xmlhttp.open("GET","/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/public/vista/listarTelefonosAnonimo.php?BuscarParametro="+parametro,true);
     xmlhttp.send();
     }
     return false;
+
    }
