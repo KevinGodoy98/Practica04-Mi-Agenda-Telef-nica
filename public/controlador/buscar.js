@@ -1,4 +1,5 @@
 document.getElementById("btnBuscar").addEventListener("click",buscarAnonimo);
+
 function buscarAnonimo() {
     var parametro = document.getElementById("BuscarParametro").value;
     if (parametro == "") {
@@ -21,5 +22,4 @@ function buscarAnonimo() {
     xmlhttp.send();
     }
     return false;
-
    }
