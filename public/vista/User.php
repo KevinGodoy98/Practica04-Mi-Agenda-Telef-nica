@@ -26,8 +26,9 @@
              <br>
              <br>
             <div class="boton">
-                <a href="/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/index.html"><input type="button" id="btnInicio" value="Inicio" style="float: right; width: 20%;display: inline-block;border-radius: 4px;background-color: chartreuse;border: none;color: #FFFFFF;text-align: center;font-size: 28px;padding: 20px;width: 200px;transition: all 0.5s;cursor: pointer;margin: 5px;cursor: pointer;display: inline-block;position: relative;transition: 0.5s;margin-left: 174px;margin-top: -159px;"></a>
+                <a href="/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/.html"><input type="button" id="btnInicio" value="Inicio" style="float: right; width: 20%;display: inline-block;border-radius: 4px;background-color: chartreuse;border: none;color: #FFFFFF;text-align: center;font-size: 28px;padding: 20px;width: 200px;transition: all 0.5s;cursor: pointer;margin: 5px;cursor: pointer;display: inline-block;position: relative;transition: 0.5s;margin-left: 174px;margin-top: -159px;"></a>
             </div>
+            <a href="listarTelfAnonimo.html"><input type="button" id="btnBuscar" value="Buscar Telefono" style="float: right; width: 20%;display: inline-block;border-radius: 4px;background-color: chartreuse;border: none;color: #FFFFFF;text-align: center;font-size: 28px;padding: 20px;width: 233px;transition: all 0.5s;cursor: pointer;margin: 5px;cursor: pointer;display: inline-block;position: relative;transition: 0.5s;margin-left: 174px;"></a>
         </header>
 
         <?php
@@ -35,7 +36,7 @@
  include '../../config/ConexionBD.php';
  //echo "Hola " . $cedula;
 $correo= $_GET['correo'];
- $sql = "SELECT u.usu_cedula,u.usu_nombres,u.usu_apellidos,u.usu_correo,u.usu_contrasena,t.tel_numero,t.tel_tipo,t.tel_codigo,t.tel_usu_codigo
+ $sql = "SELECT u.usu_cedula,u.usu_nombres,u.usu_apellidos,u.usu_correo,u.usu_contrasena,t.tel_numero,t.tel_tipo,t.tel_codigo,t.tel_usu_codigo,u.usu_codigo
          from usuario u , Telefonos t
          where u.usu_codigo = t.tel_usu_codigo
          And u.usu_correo ='$correo'";
@@ -55,6 +56,8 @@ $correo= $_GET['correo'];
  <th>Agregar Telefono</th>
  <th>Modificar Telefono</th>
  <th>Eliminar Telefono</th>
+ <th>Modificar Contraseña</th>
+ <th>Eliminar Contraseña</th>
  </tr>";
 
  if ($result->num_rows > 0 ) {
@@ -84,6 +87,10 @@ $correo= $_GET['correo'];
 
     echo " <td> <a href='/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/public/controlador/eliminarU.php?codigo=" . $row['tel_codigo'] . "'>Eliminar numero</a> </td>";
     
+    echo " <td> <a href='/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/public/controlador/modificarContraU.php?codigo=" . $row['usu_codigo'] . "'>Modificar Contraseña </a> </td>";
+    
+    echo " <td> <a href='/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/public/controlador/eliminarCU.php?codigo=" . $row['usu_codigo'] . "'>Eliminar Contraseña </a> </td>";
+
     echo "</tr>";
     }
    }else{
@@ -97,7 +104,7 @@ $correo= $_GET['correo'];
 
 ?>
 <footer id="piepagina" style="
-    margin-top: 381px;
+    margin-top: 299px;
     clear: both;
     border: rgb(86, 87, 143);
     padding: 0px;
