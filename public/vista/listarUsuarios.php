@@ -35,7 +35,10 @@
  <th>Cedula</th>
  <th>Nombres</th>
  <th>Apellidos</th>
+ <th>Rol</th>
  <th>Correo</th>
+ <th>Contraseña</th>
+ <th>Modificar Campos</th>
  </tr>
 
 
@@ -55,7 +58,14 @@ $sql = "SELECT * FROM usuario ";
  
  echo " <td style=text-align:center>" . $row['usu_apellidos'] . "</td>";
 
- echo " <td style=text-align:center>" . $row['usu_correo'] . "</td>" ;"<br>";
+ echo " <td style=text-align:center>" . $row['usu_rol'] . "</td>";
+
+ echo " <td style=text-align:center>" . $row['usu_correo'] . "</td>";
+
+ echo " <td style=text-align:center>" . $row['usu_contrasena'] . "</td>" ;"<br>";
+
+ echo " <td> <a href='/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/public/controlador/modificarU.php?codigo=" . $row['tel_codigo'] . "'>Modificar numero</a> </td>";
+ 
  echo "</tr>";
  }
  } else {
@@ -69,6 +79,7 @@ $sql = "SELECT * FROM usuario ";
  <tr>
  <th>Telefono</th>
  <th>Tipo</th>
+ <th>Operadora</th>
  </tr>
 
  <?php
@@ -83,6 +94,7 @@ $sql1= "SELECT * FROM Telefonos";
     while($row1 = $result1->fetch_assoc()) {
     echo " <td style=text-align:center>" . $row1['tel_numero']."</td>";
     echo " <td style=text-align:center>" . $row1['tel_tipo']."</td>";
+    echo " <td style=text-align:center>" . $row1['tel_operadora']."</td>";
     echo "</tr>";
     }
  } else {

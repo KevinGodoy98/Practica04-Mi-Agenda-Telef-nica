@@ -58,6 +58,7 @@ $correo= $_GET['correo'];
  <th>Eliminar Telefono</th>
  <th>Modificar Contraseña</th>
  <th>Eliminar Contraseña</th>
+ <th>Modificar Usuario</th>
  </tr>";
 
  if ($result->num_rows > 0 ) {
@@ -89,8 +90,9 @@ $correo= $_GET['correo'];
     
     echo " <td> <a href='/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/public/controlador/modificarContraU.php?codigo=" . $row['usu_codigo'] . "'>Modificar Contraseña </a> </td>";
     
-    echo " <td> <a href='/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/public/controlador/eliminarCU.php?codigo=" . $row['usu_codigo'] . "'>Eliminar Contraseña </a> </td>";
+    echo " <td> <a href='/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/public/controlador/eliminarCU.php?codigo=" . $row['usu_codigo'] . "'>Eliminar Usuario </a> </td>";
 
+    echo " <td> <a href='/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/public/controlador/modificarUser.php?codigo=" . $row['usu_codigo'] . "'>Modificar Usuario </a> </td>";
     echo "</tr>";
     }
    }else{

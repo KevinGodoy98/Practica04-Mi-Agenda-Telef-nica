@@ -10,7 +10,7 @@
  $codigo = $_POST["codigo"];
  $contraseña = isset($_POST["password"]) ? trim($_POST["password"]) : null;
  $sql1 = "UPDATE usuario  
- SET usu_contrasena = ''
+ SET usu_contrasena = 'usuario eliminado'
  WHERE usu_codigo = '$codigo'";
  if ($conn->query($sql1) === TRUE) {
  echo "Se ha eliminado los datos correctamemte!!!<br>";
