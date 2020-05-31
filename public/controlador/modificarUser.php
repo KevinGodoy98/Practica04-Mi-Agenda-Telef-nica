@@ -101,7 +101,7 @@
                <time datetime="2020-04-23">Abril 23 2020 8:25 p.m.</time></p>
                <p><cite>Kevin Godoy Mendía @2020 Derechos Reservados</cite></p>
 </footer>
-<script src=ValidarContrasenaU.js></script>
+<script src=ValidarUsuario.js></script>
 </body>
 
 </html>
