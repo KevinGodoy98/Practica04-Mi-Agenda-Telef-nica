@@ -3,7 +3,7 @@
     background: beige; ">
 <head>
  <meta charset="UTF-8">
- <title>Gestión de usuarios</title>
+ <title>Modificar Telefonos Usuario</title>
  <link rel="stylesheet" href ="/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/public/vista/tabla.css" type="text/css" />
 </head>
 <body>
@@ -29,75 +29,61 @@
                 <a href="/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/index.html"><input type="button" id="btnInicio" value="Inicio" style="float: right; width: 20%;display: inline-block;border-radius: 4px;background-color: chartreuse;border: none;color: #FFFFFF;text-align: center;font-size: 28px;padding: 20px;width: 200px;transition: all 0.5s;cursor: pointer;margin: 5px;cursor: pointer;display: inline-block;position: relative;transition: 0.5s;margin-left: 174px;margin-top: -159px;"></a>
             </div>
         </header>
-
         <?php
- //incluir conexión a la base de datos
- include '../../config/ConexionBD.php';
- //echo "Hola " . $cedula;
-$correo= $_GET['correo'];
- $sql = "SELECT u.usu_cedula,u.usu_nombres,u.usu_apellidos,u.usu_correo,u.usu_contrasena,t.tel_numero,t.tel_tipo,t.tel_codigo,t.tel_usu_codigo
-         from usuario u , Telefonos t
-         where u.usu_codigo = t.tel_usu_codigo
-         And u.usu_correo ='$correo'";
+         $codigo = $_GET["codigo"];
+         $sql = "SELECT * FROM Telefonos where tel_codigo=$codigo";
+         include '../../config/ConexionBD.php';
+         $result = $conn->query($sql);
+
+         if ($result->num_rows > 0) {
+         
+
+        while($row = $result->fetch_assoc()) {
+        
+ ?>
 
 
-//cambiar la consulta para puede buscar por ocurrencias de letras
- $result =$conn->query($sql);
- echo " <table style='width:100%'>
- <tr>
- <th>Cedula</th>
- <th>Nombres</th>
- <th>Apellidos</th>
- <th>Correo</th>
- <th>Contraseña</th>
- <th>Telefono</th>
- <th>Tipo</th>
- <th>Agregar Telefono</th>
- <th>Modificar Telefono</th>
- <th>Eliminar Telefono</th>
- </tr>";
 
- if ($result->num_rows > 0 ) {
 
-    while($row = $result->fetch_assoc()) {
-    echo "<tr>";
-   
-    echo " <td style=text-align:center>" . $row['usu_cedula'] ."</td>";
 
-    echo " <td style=text-align:center>" . $row['usu_nombres'] ."</td>";
-    
-    echo " <td style=text-align:center>" . $row['usu_apellidos'] . "</td>";
-
-    echo " <td style=text-align:center>" . $row['usu_correo'] ."</td>";
-
-    echo " <td style=text-align:center>" . $row['usu_contrasena'] ."</td>";
-    
-    echo " <td style=text-align:center>" . $row['tel_numero'] . "</td>" ;"<br>";
-    
-    echo " <td style=text-align:center>" . $row['tel_tipo'] . "</td>" ;"<br>";
-    
-     $codigo = $row['tel_codigo'];
-     $codigou = $row['tel_usu_codigo'];
-    echo " <td> <a href='/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/public/controlador/AgregarU.php?codigo=" . $codigo . "&codigou=" . $codigou  . "'>Agregar numero</a> </td>";
-
-    echo " <td> <a href='/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/public/controlador/modificarU.php?codigo=" . $row['tel_codigo'] . "'>Modificar numero</a> </td>";
-
-    echo " <td> <a href='/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/public/controlador/eliminarU.php?codigo=" . $row['tel_codigo'] . "'>Eliminar numero</a> </td>";
-    
-    echo "</tr>";
-    }
-   }else{
-    echo "<tr>";
-    echo " <td colspan='7'> No existen usuarios registradas en el sistema </td>";
-    echo "</tr>";
+        <aside>
+            <h2  style="
+    text-align: center;
+">Formulario</h2>
+            <!--<form id="formulario01" method="POST" onsubmit="return validar()||EntrarPHP() " action="/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/public/controlador/crear_usuario.php" >-->
+            <form id= "formulario" method="POST" action="/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/public/controlador/modificarUsuario.php">
+                <fieldset style="
+    WIDTH: 50%;
+    margin-top: 112px;
+    margin-left: 375px;
+">
+                   <legend>Modificar:</legend>
+                        <br>
+                            <br>
+                        <input type="hidden" id="codigo" name="codigo" value="<?php echo $codigo ?>" />
+                        <div><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Telefono:</label><input type='text' id="telefono" name= "telefono" value= "<?php echo $row["tel_numero"] ?>"></div><br>
+                        <div><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tipo(telf):</label><input type='text' id="tipo" name= "tipo" value="<?php echo $row["tel_tipo"]; ?>"></div><br>
+                        <div><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Operadora:</label><input type='text' id="operadora" name="operadora" value="<?php echo $row["tel_operadora"]; ?>"></div><br>
+                         <input type="submit"  id="btnValidar"  value="Aceptar" style="float: right;width: 20%;"> 
+                       
+                         <br><br>
+                            
+               </fieldset>
+            </form>
+            <spam id="p" style="display: none;">error</spam>
+        </aside>
+        <?php
  }
- 
- echo "</table>";
- $conn->close();
 
-?>
+ } else {
+ echo "<p>Ha ocurrido un error inesperado !</p>";
+ echo "<p>" . mysqli_error($conn) . "</p>";
+ }
+ $conn->close();
+ ?> 
+
 <footer id="piepagina" style="
-    margin-top: 381px;
+    margin-top: 117px;
     clear: both;
     border: rgb(86, 87, 143);
     padding: 0px;
@@ -112,7 +98,6 @@ $correo= $_GET['correo'];
                <time datetime="2020-04-23">Abril 23 2020 8:25 p.m.</time></p>
                <p><cite>Kevin Godoy Mendía @2020 Derechos Reservados</cite></p>
 </footer>
-<script src="../controlador/buscaruser.js"></script>
 </body>
 
 </html>
