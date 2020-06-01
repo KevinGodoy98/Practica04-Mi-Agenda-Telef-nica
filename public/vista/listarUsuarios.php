@@ -28,6 +28,7 @@
             <div class="boton">
                 <a href="/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/index.html"><input type="button" id="btnInicio" value="Inicio" style="float: right; width: 20%;display: inline-block;border-radius: 4px;background-color: chartreuse;border: none;color: #FFFFFF;text-align: center;font-size: 28px;padding: 20px;width: 200px;transition: all 0.5s;cursor: pointer;margin: 5px;cursor: pointer;display: inline-block;position: relative;transition: 0.5s;margin-left: 174px;margin-top: -159px;"></a>
             </div>
+            <a href="/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/admin/vista/BuscarUsuario.html"><input type="button" id="btnBuscar" value="Buscar Usuario" style="float: right; width: 20%;display: inline-block;border-radius: 4px;background-color: chartreuse;border: none;color: #FFFFFF;text-align: center;font-size: 28px;padding: 20px;width: 233px;transition: all 0.5s;cursor: pointer;margin: 5px;cursor: pointer;display: inline-block;position: relative;transition: 0.5s;margin-left: 174px;"></a>
         </header>
 
  <table style="width:100%">
@@ -38,7 +39,9 @@
  <th>Rol</th>
  <th>Correo</th>
  <th>Contraseña</th>
- <th>Modificar Campos</th>
+ <th>Modificar Usuario</th>
+ <th>Eliminar Usuario</th>
+ <th>Agregar Usuario</th>
  </tr>
 
 
@@ -64,8 +67,13 @@ $sql = "SELECT * FROM usuario ";
 
  echo " <td style=text-align:center>" . $row['usu_contrasena'] . "</td>" ;"<br>";
 
- echo " <td> <a href='/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/public/controlador/modificarU.php?codigo=" . $row['tel_codigo'] . "'>Modificar numero</a> </td>";
- 
+ echo " <td> <a href='/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/admin/controlador/modificarA.php?codigo=" . $row['usu_codigo'] . "'>Modificar Usuario</a> </td>";
+
+ echo " <td> <a href='/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/admin/controlador/eliminarA.php?codigo=" . $row['usu_codigo'] . "'>Eliminar Usuario</a> </td>";
+
+ echo " <td> <a href='/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/admin/vista/crear_user.html?codigo=" . $row['usu_codigo'] . "'>Agregar Usuario</a> </td>";
+
+ //echo " <td> <a href='/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/admin/vista/crear_user.html>Agregar Usuario</a></td>";
  echo "</tr>";
  }
  } else {
@@ -80,6 +88,8 @@ $sql = "SELECT * FROM usuario ";
  <th>Telefono</th>
  <th>Tipo</th>
  <th>Operadora</th>
+ <th>Modificar Telefono</th>
+ <th>Agregar Telefono</th>
  </tr>
 
  <?php
@@ -95,6 +105,11 @@ $sql1= "SELECT * FROM Telefonos";
     echo " <td style=text-align:center>" . $row1['tel_numero']."</td>";
     echo " <td style=text-align:center>" . $row1['tel_tipo']."</td>";
     echo " <td style=text-align:center>" . $row1['tel_operadora']."</td>";
+    $codigo = $row1['tel_codigo'];
+    $codigou = $row1['tel_usu_codigo'];
+    echo " <td> <a href='/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/admin/controlador/modificarT.php?codigo=" . $row1['tel_codigo'] . "'>Modificar Telefono</a> </td>";
+
+    echo " <td> <a href='/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/admin/controlador/AgregarT.php?codigo=" . $codigo . "&codigou=" . $codigou  . "'>Agregar numero</a> </td>";
     echo "</tr>";
     }
  } else {
