@@ -1,3 +1,51 @@
+
+ 	VICERRECTORADO DOCENTE	Código: GUIA-PRL-001
+	CONSEJO ACADÉMICO	Aprobación: 2016/04/06
+Formato: Guía de Práctica de Laboratorio / Talleres / Centros de Simulación
+
+
+
+
+PRÁCTICA DE LABORATORIO
+CARRERA: COMPUTACION	ASIGNATURA: PROGRAMACIÓN HIPERMEDIAL
+NRO. PRÁCTICA:	4	TÍTULO PRÁCTICA: Validaciones y manipulación de información usando PHP y MySql
+OBJETIVO ALCANZADO:
+
+• Diseñar adecuadamente elementos gráficos en sitios web en Internet.
+• Crear sitios web aplicando estándares actuales.
+• Desarrollar aplicaciones web interactivas y amigables al usuario.
+
+ACTIVIDADES DESARROLLADAS
+1. Crear un repositorio en GitHub con el nombre “Practica04 – Mi Agenda Telefónica”
+2. Crear una carpeta para la solución de cada ejercicio antes mencionado.
+3. Realizar un commit y push por cada requerimiento de los puntos antes descritos.
+4. Luego, se debe crear el archivo README del repositorio de GitHub.
+ 5. Generar informe de los resultados en el formato de prácticas. Debe incluir:
+a. El diagrama E-R de la solución propuesta.
+b. Nombre de la base de datos
+c. Sentencias SQL de la estructura de la base de datos
+d. El desarrollo de cada uno de los requerimientos antes descritos. 
+e. La evidencia del correcto diseño de las páginas HTML usando CSS. Para lo cuál, se puede generar fotografías
+instantáneas (pantallazos). 
+f. La evidencia del correcto funcionamiento de cada uno de los puntos requeridos.
+g. El informe debe incluir conclusiones apropiadas. 
+h. En el informe se debe incluir la información de GitHub (usuario y URL del repositorio de la práctica) 
+i. En el informe se debe incluir la firma digital del estudiante.
+
+6. En el archivo README del repositorio debe constar la misma información del informe de resultados de
+la práctica que se indica en el punto anterior.
+
+
+
+
+ 
+
+ 	VICERRECTORADO DOCENTE	Código: GUIA-PRL-001
+	CONSEJO ACADÉMICO	Aprobación: 2016/04/06
+Formato: Guía de Práctica de Laboratorio / Talleres / Centros de Simulación
+
+
+
 1.	Creación de la tabla
  
 Primeramente, creamos una base de datos, su nombre es “agenda”; esta contiene tablas como es teléfonos y usuarios. 
@@ -11,10 +59,25 @@ En la tabla Telefonos tenemos el numero del cliente o usuario y además tenemos 
 El último código como es “tel_usu_codigo” permitirá unir a la tabla usuario mediante una foreing_key hacia la primaria de usuario como es la “usu_codigo”.  
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
 Finalmente, así es como quedara nuestra tabla teléfonos y usuario 
 
-B.	Código
+A.	Código
 1.	ConexionBD
 <?php
 
@@ -42,7 +105,7 @@ Ahora con el $conn = new mysql… validara los datos tanto de la base con los in
 
  
 
-C.	<a href="/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/public/vista/Login.html"><img src="https://cdn.onlinewebfonts.com/svg/img_568656.png" height="50" width="50" alt="youtube"/></a> 
+B.	<a href="/hypermedial/Practica-PHP/Practica04-Mi-Agenda-Telef-nica/public/vista/Login.html"><img src="https://cdn.onlinewebfonts.com/svg/img_568656.png" height="50" width="50" alt="youtube"/></a> 
 
 Nuestra pagina principal (index) le mandamos la dirección de la imagen en donde al darlo click nos llevara a nuestra página login.php.  
  
@@ -372,6 +435,13 @@ for(var i = 0;i<pass.length;i++)
             }
 En esta sección validamos los datos letra por letra y que cumpla con lo solicitado y esto de lo realiza con la ayuda del chart(i) ya que según el código ASCCI que sea entre 65-90(letras mayusculas); 97-122(letras minúsculas); 48-57(numérico) y finalmente los simbólicos. Si esto es valido se guardara los datos; caso contrario nos mandara invalido.
 
+
+
+
+
+
+
+
 8.	ModificarUsuario.php
  
 
@@ -398,6 +468,9 @@ $conn->close();
 ?>
 
 dentro del if se validarán los datos de acuerdo al $codigo ingresado en donde este ubicado nuestros datos. Si los datos del código no son correctos se mostrará un error.
+
+
+
 
 9.	ModificarUser.php
 Modificara los datos de la tabla usuario
@@ -628,3 +701,106 @@ echo "<p class='error'>El numero $numero ya esta registrado en el sistema </p>";
 echo "<p class='error'>Error: " . mysqli_error($conn) . "</p>";
 
 El código se insertara de acuerdo al código de la tabla de teléfonos.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+e.   Información de GitHub
+https://github.com/KevinGodoy98/Practica04-Mi-Agenda-Telef-nica.git
+
+
+CONCLUSIONES:
+Tener el conocimiento suficiente para que el estudiante pueda entender y organizar de una mejor manera los sitios de
+web y de negocios en Internet
+
+
+
+RECOMENDACIONES:
+• Probar la solución de la práctica en al menos tres navegadores web; Google Chrome, Firefox y Safari
+
+
+
+
+Nombre de estudiante: 
+William  Chabla  
+Kevin Godoy  
+                                           
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
